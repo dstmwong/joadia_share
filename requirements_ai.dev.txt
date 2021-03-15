@@ -1,0 +1,9 @@
+# required to run the main game with random agenets and without UI:
+PySimpleGUI
+pillow
+# required for some of the AI implementations (not used in th default setup)
+numpy
+matplotlib
+scikit-learn
+keras
+gym

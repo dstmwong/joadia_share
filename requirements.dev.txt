@@ -1,0 +1,3 @@
+# required to run the main game with random agenets and without UI:
+PySimpleGUI
+pillow

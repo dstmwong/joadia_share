@@ -1,0 +1,24 @@
+entity.current_pax_capacity -> entity.current_capacity()
+C130.evacuate(apod,number) -> C130.evacuate_civilians()
+apod.get_liftables() -> apod.get_mobile_liftables()
+entity.air_lift(liftable) -> entity.load_entities() then entity.airlift_entities()
+entity.air_drop(apod, to_territory, num_supplies) -> entity.airdrop_supplies(to_territory, num_supplies)
+airdrop_supplies is now in day phase
+
+land_connections!=None -> land_connections!=[]
+airlift_entities now does all entities (not just one)
+
+it seems that drop_pax no longer takes the territory. The same with drop_supply
+
+added interdict
+
+it seems that healing is now done automatically
+
+evacuate is now in day phase rather than dawn phase
+
+--------------------
+
+git checkout master   OR dev_wongm
+git pull
+git checkout BeamSearch
+git merge master

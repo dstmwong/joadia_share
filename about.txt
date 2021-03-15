@@ -1,0 +1,8 @@
+Joadia
+--------
+
+Code implements a complete version of the "Disaster on Joadia Islands Wargame"
+
+Original wargame concept and rules developed by Peter Williams (Joint and Operations Analysis Division, DSTG)
+
+Joadia code written by Martin Wong, Dmitri Kamenetsky, Slava Shekh, Glennn Moy (Joint and Operations Analysis Division, DSTG) and by Tait Reid & Heean Park (Elmtek)
