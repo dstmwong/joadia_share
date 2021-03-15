@@ -1,0 +1,655 @@
+{
+    "0": [
+        {
+            "Name": "T1",
+            "CivilState": "NORMAL",
+            "Revealed": false,
+            "NumSupplies": 0,
+            "Entities": [
+                {
+                    "Name": "CIVILIAN_1",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_2",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_3",
+                    "Extra": "INJURED"
+                }
+            ]
+        },
+        {
+            "Name": "T2",
+            "CivilState": "NORMAL",
+            "Revealed": false,
+            "NumSupplies": 0,
+            "Entities": [
+                {
+                    "Name": "CIVILIAN_4",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_5",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_6",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_7",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_8",
+                    "Extra": "INJURED"
+                },
+                {
+                    "Name": "CIVILIAN_9",
+                    "Extra": "INJURED"
+                }
+            ]
+        },
+        {
+            "Name": "T3",
+            "CivilState": "NORMAL",
+            "Revealed": false,
+            "NumSupplies": 0,
+            "Entities": [
+                {
+                    "Name": "CIVILIAN_10",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_11",
+                    "Extra": "INJURED"
+                }
+            ]
+        },
+        {
+            "Name": "T4",
+            "CivilState": "NORMAL",
+            "Revealed": false,
+            "NumSupplies": 0,
+            "Entities": [
+                {
+                    "Name": "CIVILIAN_12",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_13",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_14",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_15",
+                    "Extra": "INJURED"
+                },
+                {
+                    "Name": "CIVILIAN_16",
+                    "Extra": "INJURED"
+                }
+            ]
+        },
+        {
+            "Name": "T5",
+            "CivilState": "NORMAL",
+            "Revealed": false,
+            "NumSupplies": 0,
+            "Entities": [
+                {
+                    "Name": "CIVILIAN_17",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_18",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_19",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_20",
+                    "Extra": "HEALTHY"
+                }
+            ]
+        },
+        {
+            "Name": "T6",
+            "CivilState": "NORMAL",
+            "Revealed": false,
+            "NumSupplies": 0,
+            "Entities": [
+                {
+                    "Name": "CIVILIAN_21",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_22",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_23",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_24",
+                    "Extra": "HEALTHY"
+                }
+            ]
+        },
+        {
+            "Name": "T7",
+            "CivilState": "NORMAL",
+            "Revealed": false,
+            "NumSupplies": 0,
+            "Entities": [
+                {
+                    "Name": "CIVILIAN_25",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_26",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_27",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_28",
+                    "Extra": "INJURED"
+                },
+                {
+                    "Name": "CIVILIAN_29",
+                    "Extra": "INJURED"
+                }
+            ]
+        },
+        {
+            "Name": "T8",
+            "CivilState": "NORMAL",
+            "Revealed": false,
+            "NumSupplies": 0,
+            "Entities": [
+                {
+                    "Name": "CIVILIAN_30",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_31",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_32",
+                    "Extra": "INJURED"
+                }
+            ]
+        },
+        {
+            "Name": "T9",
+            "CivilState": "NORMAL",
+            "Revealed": true,
+            "NumSupplies": 0,
+            "Entities": []
+        },
+        {
+            "Name": "T10",
+            "CivilState": "NORMAL",
+            "Revealed": false,
+            "NumSupplies": 0,
+            "Entities": [
+                {
+                    "Name": "CIVILIAN_33",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_34",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_35",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_36",
+                    "Extra": "HEALTHY"
+                }
+            ]
+        },
+        {
+            "Name": "T11",
+            "CivilState": "NORMAL",
+            "Revealed": false,
+            "NumSupplies": 0,
+            "Entities": [
+                {
+                    "Name": "CIVILIAN_37",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_38",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_39",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_40",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_41",
+                    "Extra": "INJURED"
+                },
+                {
+                    "Name": "CIVILIAN_42",
+                    "Extra": "INJURED"
+                }
+            ]
+        },
+        {
+            "Name": "T12",
+            "CivilState": "NORMAL",
+            "Revealed": false,
+            "NumSupplies": 0,
+            "Entities": [
+                {
+                    "Name": "CIVILIAN_43",
+                    "Extra": "HEALTHY"
+                }
+            ]
+        },
+        {
+            "Name": "T13",
+            "CivilState": "NORMAL",
+            "Revealed": false,
+            "NumSupplies": 0,
+            "Entities": [
+                {
+                    "Name": "CIVILIAN_44",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_45",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_46",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_47",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_48",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_49",
+                    "Extra": "INJURED"
+                },
+                {
+                    "Name": "CIVILIAN_50",
+                    "Extra": "INJURED"
+                }
+            ]
+        },
+        {
+            "Name": "T14",
+            "CivilState": "NORMAL",
+            "Revealed": false,
+            "NumSupplies": 0,
+            "Entities": [
+                {
+                    "Name": "CIVILIAN_51",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_52",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_53",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_54",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_55",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_56",
+                    "Extra": "INJURED"
+                },
+                {
+                    "Name": "CIVILIAN_57",
+                    "Extra": "INJURED"
+                }
+            ]
+        },
+        {
+            "Name": "T15",
+            "CivilState": "NORMAL",
+            "Revealed": true,
+            "NumSupplies": 15,
+            "Entities": [
+                {
+                    "Name": "C130_1",
+                    "Extra": ""
+                },
+                {
+                    "Name": "P8_1",
+                    "Extra": ""
+                },
+                {
+                    "Name": "MRH_1",
+                    "Extra": ""
+                },
+                {
+                    "Name": "MOTCOY_1",
+                    "Extra": ""
+                },
+                {
+                    "Name": "MOTCOY_2",
+                    "Extra": ""
+                },
+                {
+                    "Name": "INF_1",
+                    "Extra": ""
+                },
+                {
+                    "Name": "INF_2",
+                    "Extra": ""
+                },
+                {
+                    "Name": "MEDIC_1",
+                    "Extra": ""
+                },
+                {
+                    "Name": "MEDIC_2",
+                    "Extra": ""
+                },
+                {
+                    "Name": "OPV_1",
+                    "Extra": "S15_1"
+                },
+                {
+                    "Name": "OPV_2",
+                    "Extra": "S15_1"
+                }
+            ]
+        },
+        {
+            "Name": "T16",
+            "CivilState": "NORMAL",
+            "Revealed": false,
+            "NumSupplies": 0,
+            "Entities": [
+                {
+                    "Name": "CIVILIAN_58",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_59",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_60",
+                    "Extra": "INJURED"
+                },
+                {
+                    "Name": "CIVILIAN_61",
+                    "Extra": "INJURED"
+                }
+            ]
+        },
+        {
+            "Name": "T17",
+            "CivilState": "NORMAL",
+            "Revealed": false,
+            "NumSupplies": 0,
+            "Entities": [
+                {
+                    "Name": "CIVILIAN_62",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_63",
+                    "Extra": "INJURED"
+                },
+                {
+                    "Name": "CIVILIAN_64",
+                    "Extra": "INJURED"
+                },
+                {
+                    "Name": "CIVILIAN_65",
+                    "Extra": "INJURED"
+                }
+            ]
+        },
+        {
+            "Name": "T18",
+            "CivilState": "NORMAL",
+            "Revealed": false,
+            "NumSupplies": 0,
+            "Entities": [
+                {
+                    "Name": "CIVILIAN_66",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_67",
+                    "Extra": "INJURED"
+                },
+                {
+                    "Name": "CIVILIAN_68",
+                    "Extra": "INJURED"
+                },
+                {
+                    "Name": "CIVILIAN_69",
+                    "Extra": "INJURED"
+                }
+            ]
+        },
+        {
+            "Name": "T19",
+            "CivilState": "NORMAL",
+            "Revealed": false,
+            "NumSupplies": 0,
+            "Entities": [
+                {
+                    "Name": "CIVILIAN_70",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_71",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_72",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_73",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_74",
+                    "Extra": "INJURED"
+                },
+                {
+                    "Name": "CIVILIAN_75",
+                    "Extra": "INJURED"
+                }
+            ]
+        },
+        {
+            "Name": "T20",
+            "CivilState": "NORMAL",
+            "Revealed": false,
+            "NumSupplies": 0,
+            "Entities": [
+                {
+                    "Name": "CIVILIAN_76",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_77",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_78",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_79",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_80",
+                    "Extra": "INJURED"
+                },
+                {
+                    "Name": "CIVILIAN_81",
+                    "Extra": "INJURED"
+                }
+            ]
+        },
+        {
+            "Name": "T21",
+            "CivilState": "NORMAL",
+            "Revealed": false,
+            "NumSupplies": 0,
+            "Entities": [
+                {
+                    "Name": "CIVILIAN_82",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_83",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_84",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_85",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_86",
+                    "Extra": "HEALTHY"
+                }
+            ]
+        },
+        {
+            "Name": "T22",
+            "CivilState": "NORMAL",
+            "Revealed": false,
+            "NumSupplies": 0,
+            "Entities": [
+                {
+                    "Name": "CIVILIAN_87",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_88",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_89",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_90",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_91",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_92",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_93",
+                    "Extra": "INJURED"
+                },
+                {
+                    "Name": "CIVILIAN_94",
+                    "Extra": "INJURED"
+                }
+            ]
+        },
+        {
+            "Name": "T23",
+            "CivilState": "NORMAL",
+            "Revealed": false,
+            "NumSupplies": 0,
+            "Entities": [
+                {
+                    "Name": "CIVILIAN_95",
+                    "Extra": "HEALTHY"
+                },
+                {
+                    "Name": "CIVILIAN_96",
+                    "Extra": "HEALTHY"
+                }
+            ]
+        },
+        {
+            "Name": null,
+            "Entities": [
+                {
+                    "Name": "FishBoat_1",
+                    "Extra": "Militia_1"
+                },
+                {
+                    "Name": "FishBoat_2",
+                    "Extra": ""
+                },
+                {
+                    "Name": "FishBoat_3",
+                    "Extra": "Militia_2"
+                },
+                {
+                    "Name": "FishBoat_4",
+                    "Extra": ""
+                },
+                {
+                    "Name": "FishBoat_5",
+                    "Extra": "Militia_3"
+                },
+                {
+                    "Name": "FishBoat_6",
+                    "Extra": ""
+                },
+                {
+                    "Name": "FishBoat_7",
+                    "Extra": "Militia_4"
+                },
+                {
+                    "Name": "FishBoat_8",
+                    "Extra": ""
+                }
+            ]
+        }
+    ],
+    "1": {
+        "DAWN": []
+    }
+}
