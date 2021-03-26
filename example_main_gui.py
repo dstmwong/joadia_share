@@ -16,6 +16,8 @@ territories, surfaces, adjacency_matrix = create_territories("territory_def.txt"
 game = Game(territories.values(), use_population_distribution=True)
 engine = GameEngine(game)
 
+Game.DO_PRINT = True
+
 humanplayer1 = HumanPlayer("HumanPlayer1")
 # humanplayer1 = RandomBlueAI("RandomBlueAI")
 humanplayer1.side = Side.BLUE
