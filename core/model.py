@@ -25,10 +25,11 @@ DO_CONSUMPTION_PHASE = True
 DEBUG = True
 DEBUG_MOVEMENT = False
 
-DO_PRINT = False
 
 
 class Game:
+    DO_PRINT = False
+    
     #how many supply cubes the fob gets on resupply
     INITIAL_RESUPPLY_NUM = 20
     RESUPPLY_NUM = 15
@@ -106,7 +107,7 @@ class Game:
         
         
     def reset(self):
-        if DO_PRINT:
+        if Game.DO_PRINT:
             print("Game:reset")
         
         self.turn_num = 0
@@ -162,7 +163,7 @@ class Game:
     def start_turn(self):
         self.turn_num += 1
         
-        if DO_PRINT:
+        if Game.DO_PRINT:
             print("")
             print("->TURN ", self.turn_num, "<-")
 
@@ -171,13 +172,13 @@ class Game:
                      
     def end_turn(self):
         if self.turn_num%2 == 0 and not self.turn_num == 0:
-            if DO_PRINT: 
+            if Game.DO_PRINT: 
                 print("")
            
             if DO_CONSUMPTION_PHASE:
                 self.consume_phase()
         if self.turn_num%3 == 0 and not self.turn_num == 0:
-            if DO_PRINT:
+            if Game.DO_PRINT:
                 print("")
                 print("* Strategic resupply *")    
             self.strat_resupply(Game.RESUPPLY_NUM)
@@ -203,7 +204,7 @@ class Game:
                     supply = Supply()
                     supplies.append(supply)
 
-                if DO_PRINT:
+                if Game.DO_PRINT:
                     print("FOB " + t.name + " now has " + str(num_supplies) + " additional supplies")   
 
                 t.add_supplies(supplies)
@@ -639,7 +640,7 @@ class Territory:
         if pop_state == Population.UNREST:
             if not self._has_any_infantry():
                 self.state = pop_state
-                if DO_PRINT: print("Unrest in " + self.name)
+                if Game.DO_PRINT: print("Unrest in " + self.name)
                 return True
             else:
                 return False
@@ -672,23 +673,23 @@ class Territory:
         if num_civilians % num_civilians_unit != 0:
             num_supplies_req += 1
             
-        if DO_PRINT: print(self.name + " needs " + str(num_supplies_req) + " supplies")
+        if Game.DO_PRINT: print(self.name + " needs " + str(num_supplies_req) + " supplies")
         if num_supplies_req > len(self.supplies):
             
             #If there is no Hunger token present, place one in the territory
             #If there is a Hunger token present, flip it to Unrest.
             if self.state == Population.NORMAL:
                 self.set_population_state(Population.HUNGRY)
-                if DO_PRINT: print("Hunger in " + self.name)
+                if Game.DO_PRINT: print("Hunger in " + self.name)
             elif self.state == Population.HUNGRY:
                 self.set_population_state(Population.UNREST)
-                if DO_PRINT: print("Unrest in " + self.name)
+                if Game.DO_PRINT: print("Unrest in " + self.name)
                 
                 
             self.remove_healthy_civilian()
             num_supplies_req = len(self.supplies)
          
-        if DO_PRINT: print(self.name + " consumed " + str(num_supplies_req) + " supplies")
+        if Game.DO_PRINT: print(self.name + " consumed " + str(num_supplies_req) + " supplies")
         self.remove_supplies(num_supplies_req)
          
         #Remove 1 injured refugee: they have died from their wounds/disease.
@@ -966,10 +967,10 @@ class MobileEntity(Entity):
         if self.territory != None:
             if self.side == Side.BLUE and self.territory.blue_revealed == False:
                 self.territory.reveal(self)
-                if DO_PRINT: print(self.name + " performed ISR on " + str(self.territory.name))
+                if Game.DO_PRINT: print(self.name + " performed ISR on " + str(self.territory.name))
             elif self.side == Side.RED and self.territory.red_revealed == False:
                 self.territory.reveal(self)
-                if DO_PRINT: print(self.name + " performed ISR on " + str(self.territory.name))
+                if Game.DO_PRINT: print(self.name + " performed ISR on " + str(self.territory.name))
      
           
     #moves to the next surface. MobileEntities should use this method to move around
@@ -979,13 +980,13 @@ class MobileEntity(Entity):
             #to move to the new surface based on its elevation 
             if next_surface.mobility_type == Surface.LAND:
                 if self.movement_points - next_surface.elevation >= 0:
-                    if DO_PRINT:
+                    if Game.DO_PRINT:
                         print(self.name, "moved:", self.surface.territory.name, "to", next_surface.territory.name)
                     self.place(next_surface)
                     self.movement_points -= next_surface.elevation
                     return True
                 else:
-                    if DO_PRINT: 
+                    if Game.DO_PRINT: 
                         print(self.name + "has no more movement points")
                     #do isr as soon as we run out of movement points
                     print("land entity", self.name, "performing isr")
@@ -993,13 +994,13 @@ class MobileEntity(Entity):
                     return False
             else:
                 if self.movement_points > 0:
-                    if DO_PRINT:
+                    if Game.DO_PRINT:
                         print(self.name, "moved:", self.surface.territory.name, "to", next_surface.territory.name)
                     super().place(next_surface)
                     self.movement_points -= 1
                     return True
                 else:
-                    if DO_PRINT: 
+                    if Game.DO_PRINT: 
                         print(self.name + "has no more movement points.")
                     #do isr as soon as we run out of movement points
                     self.isr()
@@ -1143,7 +1144,7 @@ class LiftEntity(MobileEntity):
             if max_num <= 0:
                 return False
             
-            if DO_PRINT: print(self.name + " is lifting " + str(max_num) + " supplies from " + territory.name)
+            if Game.DO_PRINT: print(self.name + " is lifting " + str(max_num) + " supplies from " + territory.name)
             supplies = territory.remove_supplies(max_num)
             self.set_carry_mode(LiftEntity.SUPPLY)
             self._lift(supplies)
@@ -1164,7 +1165,7 @@ class LiftEntity(MobileEntity):
                     
                 for i in range(0, max_num):
                     self.territory.add_supplies(self.cargo.pop(0))
-                if DO_PRINT: print(self.name + " is dropping " + str(max_num) + " supplies to " + self.territory.name)
+                if Game.DO_PRINT: print(self.name + " is dropping " + str(max_num) + " supplies to " + self.territory.name)
                 return True    
                     
         return False
@@ -1177,7 +1178,7 @@ class LiftEntity(MobileEntity):
             if self.territory == pax.territory:
                 in_territory = True
             else:
-                if DO_PRINT: print("LiftEntity ", self.name, "not in proximity of", pax.name)
+                if Game.DO_PRINT: print("LiftEntity ", self.name, "not in proximity of", pax.name)
              
             if in_territory:
                 #can't carry both supplies and passengers
@@ -1191,10 +1192,10 @@ class LiftEntity(MobileEntity):
                         #cannot lift civilians in territories that are in the UNREST state
                         if isinstance(pax, Civilian):
                             if pax.territory.state == Population.UNREST:
-                                if DO_PRINT: print(self.name + " cannot lift " + pax.name + " from unrest territory: " + pax.territory.name)
+                                if Game.DO_PRINT: print(self.name + " cannot lift " + pax.name + " from unrest territory: " + pax.territory.name)
                                 return False
                         
-                        if DO_PRINT: 
+                        if Game.DO_PRINT: 
                             print(self.name + " is lifting " + pax.name + " from " + pax.territory.name)
                         pax.lifted = True
                         pax.remove()
@@ -1212,7 +1213,7 @@ class LiftEntity(MobileEntity):
                 pax.lifted = False
                 pax.turn_ended = True
                 self.territory.game.add_entity(pax, self.territory.lands[0])
-                if DO_PRINT: 
+                if Game.DO_PRINT: 
                     print(self.name + " is dropping " + pax.name + " to " + pax.territory.name)
 
                 return True
@@ -1291,10 +1292,10 @@ class OPV(LiftEntity):
                 for fb in fishingboats:
                     fb.remove()
                     fb.alive = False
-                    if DO_PRINT: print(self.name + " interdicted fishing boat " + fb.name)
+                    if Game.DO_PRINT: print(self.name + " interdicted fishing boat " + fb.name)
                     
                     if fb.militia != None:
-                        if DO_PRINT: print(self.name + " found militia " + fb.militia.name) 
+                        if Game.DO_PRINT: print(self.name + " found militia " + fb.militia.name) 
                     print(self.name + " cannot unload during the following Dusk phase")
                 self.interdictedBoat = True
                 return True
@@ -1437,11 +1438,11 @@ class MRH(LiftEntity):
         return False
     
     def _crash(self):
-        if DO_PRINT:print(self.name + " has crashed!")
+        if Game.DO_PRINT:print(self.name + " has crashed!")
         
         #kill all the cargo that the MRH was carrying
         for tok in self.cargo:
-            if DO_PRINT:print(tok.name + " has died!")
+            if Game.DO_PRINT:print(tok.name + " has died!")
             if isinstance(tok, Civilian):
                 self.territory.game.deaths += 1
         
@@ -1485,7 +1486,7 @@ class MRH(LiftEntity):
                 self._crash()
             else:
                 if not self.territory.pods:
-                    if DO_PRINT:
+                    if Game.DO_PRINT:
                         print(self.name, "has", self.fuel, "fuel left.")
 
     #overload: only give option to move back to reachable FOBs when MRH did not start turn in FOB
@@ -1498,7 +1499,7 @@ class MRH(LiftEntity):
             if self.move_air and self.surface:
                 if self.fuel == 1:
                     if (self.surface.territory.name != 'T9') & (self.surface.territory.name != 'T15'):
-                        if DO_PRINT:
+                        if Game.DO_PRINT:
                             print(self.name + " has limited fuel left and must return to a FOB")
                     if (self.surface in self.reachT9) & (self.surface.territory.name != 'T15'):
                         air_connections.append(self.player.engine.game.territories['T9'].airs[0])
@@ -1538,7 +1539,7 @@ class Inf(MobileEntity):
     def arrest(self):
         if not self.turn_ended and not self.lifted:
             
-            if self.surface == None and DO_PRINT:
+            if self.surface == None and Game.DO_PRINT:
                 print("Surface of " + self.name + " is None. Check to see if token is on game board.")
                 
             #check for any militia unit and remove them from game
@@ -1546,7 +1547,7 @@ class Inf(MobileEntity):
             for m in militias:
                 m.remove()
                 m.alive = False
-                if DO_PRINT:print(self.name + " arrested " + m.name)
+                if Game.DO_PRINT:print(self.name + " arrested " + m.name)
                 self.end_turn()
             
     def police(self):
@@ -1555,7 +1556,7 @@ class Inf(MobileEntity):
                 #remove any unrest token from the territory
                 if self.territory.state == Population.UNREST:
                     self.territory.set_population_state(Population.NORMAL)
-                    if DO_PRINT:print(self.name + " restored order to " + self.territory.name)
+                    if Game.DO_PRINT:print(self.name + " restored order to " + self.territory.name)
                     self.end_turn()
         
     def end_turn(self):
@@ -1599,7 +1600,7 @@ class Medic(MobileEntity):
         if not self.turn_ended and not self.lifted:
             num_healed = self.territory.heal_civilian(num_to_be_healed)
             if num_healed != 0:
-                if DO_PRINT: print("Medic", self.name, "healed", num_healed, "civilians")
+                if Game.DO_PRINT: print("Medic", self.name, "healed", num_healed, "civilians")
                 self.end_turn()
             return num_healed
         return 0
@@ -1609,7 +1610,7 @@ class Medic(MobileEntity):
         if not self.turn_ended and not self.lifted:
             if self.movement_points != 0:
 
-                if DO_PRINT:
+                if Game.DO_PRINT:
                     print(self.name + " moved: " + self.territory.name + " to " + next_surface.territory.name)
                 if animate:
                     self.lerp.move(next_surface)
@@ -1683,7 +1684,7 @@ class FishingBoat(LiftEntity):
                 self.player.engine.game.add_entity(self.militia, self.surface)
                 self.militia.place(territory.lands[0])
                 self.deployed_militia = True
-                if DO_PRINT:print(self.name + " deployed militia at " + territory.name)
+                if Game.DO_PRINT:print(self.name + " deployed militia at " + territory.name)
                 return True
         return False
             
@@ -1714,7 +1715,7 @@ class Militia(MobileEntity):
             if self.territory != None:
                 supplies = self.territory.remove_supplies(self.territory.num_supplies())
                 if len(supplies) != 0:
-                    if DO_PRINT:print(self.name + " sabotaged " + str(len(supplies)) + " in territory " + self.territory.name)
+                    if Game.DO_PRINT:print(self.name + " sabotaged " + str(len(supplies)) + " in territory " + self.territory.name)
                     self.end_turn()
                     return True
         return False
@@ -1724,7 +1725,7 @@ class Militia(MobileEntity):
             if self.territory != None:
                 actual_injured = self.territory.injure_civilian(num_to_be_injured)
                 if actual_injured != 0:
-                    if DO_PRINT:print(self.name + " injured " + str(actual_injured) + " civilians in territory " + self.territory.name)
+                    if Game.DO_PRINT:print(self.name + " injured " + str(actual_injured) + " civilians in territory " + self.territory.name)
                     self.end_turn()
                     return True
         return False
@@ -1734,7 +1735,7 @@ class Militia(MobileEntity):
             if self.territory != None:
                 unrest = self.territory.set_population_state(Population.UNREST)
                 if unrest:
-                    if DO_PRINT:print(self.name + " caused unrest in territory " + self.territory.name)
+                    if Game.DO_PRINT:print(self.name + " caused unrest in territory " + self.territory.name)
                     self.end_turn()
                     return True
         return False
@@ -1838,10 +1839,10 @@ class C130(Entity):
                     apod.remove_civilian(c)
                     
         if len(self.cargo) == 0:
-            if DO_PRINT:
+            if Game.DO_PRINT:
                 print("No civilians in ", self.territory.name, "to load by ", self.name)
             return False
-        if DO_PRINT: 
+        if Game.DO_PRINT: 
             print(self.name, "loaded civilians", len(self.cargo))
         return True
     
@@ -1883,7 +1884,7 @@ class C130(Entity):
         if len(self.cargo) == 0:
             #print("*load_supplies*", self.name, self.cargo)
             return False
-        if DO_PRINT:
+        if Game.DO_PRINT:
                 print(self.name, "loaded " + str(num_loaded) +" supply(s)")
         return True
     
@@ -1904,7 +1905,7 @@ class C130(Entity):
 
         if in_apod:
             self.cargo.append(entity)
-            if DO_PRINT: 
+            if Game.DO_PRINT: 
                 print(self.name, "loaded", entity.name, "from apod in territory", entity.territory.name)
             entity.lifted = True
             entity.remove()
@@ -1918,14 +1919,14 @@ class C130(Entity):
         if num_civilians != 0 and isinstance(self.cargo[0], Civilian):
             for c in self.cargo:
                 self.territory.game.evacuate_civilian(c)  
-                #if DO_PRINT: 
+                #if Game.DO_PRINT: 
                     #print(c.name,"evacuated")
 
             self.cargo.clear()
-            if DO_PRINT: print(self.name, "evacuated", num_civilians, "civilians")
+            if Game.DO_PRINT: print(self.name, "evacuated", num_civilians, "civilians")
             return True
     
-        if DO_PRINT: print("evacuate_civilians returning False", self.cargo)
+        if Game.DO_PRINT: print("evacuate_civilians returning False", self.cargo)
         return False
     
     def airdrop_supplies(self, target_territory, num_supplies):
@@ -1937,7 +1938,7 @@ class C130(Entity):
             for i in range(0, num_supplies):
                 target_territory.add_supplies(self.cargo.pop(0))
                 
-            if DO_PRINT: 
+            if Game.DO_PRINT: 
                 print(self.name, "dropped", str(num_supplies), "supplies on territory", target_territory.name)
             return True
         print("**airdrop_supplies**", self.name, self.cargo)
@@ -1961,7 +1962,7 @@ class C130(Entity):
                     e.turn_ended = True
                     e.lifted = False
                 
-                    if DO_PRINT: 
+                    if Game.DO_PRINT: 
                         print(self.name, "doing air lift on " + e.name + " to " + target_territory.name)
             
             self.cargo.clear()
@@ -1981,10 +1982,10 @@ class C130(Entity):
                 elif isinstance(entity, MobileEntity):
                     entity.place(self.surface)
             self.cargo.remove(entity)
-            if DO_PRINT: 
+            if Game.DO_PRINT: 
                 print(self.name, "unloading " + entity_name + " to " + self.territory.name)
             return True
-        if DO_PRINT:
+        if Game.DO_PRINT:
             print(self.name, "unable to unload " + entity_name)
         return False
     

@@ -6,7 +6,7 @@ Created on Mon Oct 15 15:12:06 2018
 """
 
 from core.model import Side, MobileEntity, C130, Phase, POD, LiftEntity, MotCoy, \
-MRH, Militia, FishingBoat, OPV, Inf, Medic, P8, Civilian, Supply
+MRH, Militia, FishingBoat, OPV, Inf, Medic, P8, Civilian, Supply, Game
 import core.model 
 import json
 
@@ -545,8 +545,8 @@ class GameEngine:
     def first_turn(self):
         if self.game.turn_num == 0:
             self.game.start_turn()
-            from core.model import DO_PRINT
-            if DO_PRINT:
+            #from core.model import DO_PRINT
+            if Game.DO_PRINT:
                 print("---Turn: 1, Phase: DAWN---")
             if self.blue_player != None:
                 self.blue_player.start_turn()

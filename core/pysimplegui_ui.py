@@ -614,17 +614,14 @@ class LoadEntityFrame(sg.Frame):
                 if self.parent.selected_entity.cargo != []:
                     #if cargo is full of civilians
                     if isinstance(self.parent.selected_entity.cargo[0], Civilian):
-                        #self.parent.selected_entity.evacuate_civilians()
                         self.parent.engine.blue_player.execute_move(self.parent.selected_entity.name, "evacuate")
                     elif isinstance(self.parent.selected_entity.cargo[0], MobileEntity):
-                        #self.parent.selected_entity.airlift_entities()
                         self.parent.engine.blue_player.execute_move(self.parent.selected_entity.name, "lift units")
                     elif isinstance(self.parent.selected_entity.cargo[0], Supply):
                         territory = values["territory_list_C130"]
                         if territory != '':
                             target_territory = self.parent.engine.game.territories[territory]
                             if target_territory != None:
-                                #self.parent.selected_entity.airdrop_supplies(target_territory, 1)
                                 self.parent.engine.blue_player.execute_move(self.parent.selected_entity.name, "airdrop supplies", target_territory.name)
                         else:
                             print("Please select a Territory from the unload dropdown menu")
@@ -671,10 +668,8 @@ class LoadEntityFrame(sg.Frame):
                         break
                 
                 if isinstance(selected_cargo, Supply):
-                    #self.parent.selected_entity.drop_supply(1)
                     self.parent.engine.blue_player.execute_move(self.parent.selected_entity.name, "drop supplies", 1)
                 elif isinstance(selected_cargo, Civilian) or isinstance(selected_cargo, MobileEntity):
-                    #self.parent.selected_entity.drop_pax(selected_cargo)
                     self.parent.engine.blue_player.execute_move(self.parent.selected_entity.name, "drop PAX", selected_cargo.name)
                     
                 selected_cargo = None
@@ -746,7 +741,7 @@ class LoadEntityFrame(sg.Frame):
                 liftable_civilians = self.parent.selected_entity.get_liftable_civilians()
                 if len(liftable_civilians) != 0:
                     civilian = liftable_civilians[0]
-                    #if self.parent.selected_entity.lift_pax(civilian):
+                    
                     if self.parent.engine.blue_player.execute_move(self.parent.selected_entity.name, "lift PAX", civilian.name):
                         self.cargo_list.Update(values = [cargo.name for cargo in self.parent.selected_entity.cargo])
                         #hide the load supply button because we can't load both supplies and 
@@ -823,7 +818,7 @@ class Replay():
             return
            
         move = self.moves.pop(0)
-        #print(self.moves)
+    
         entity_name = move[0]
         move_label = move[1]
         
@@ -970,6 +965,7 @@ class Replay():
 class JoadiaWindowApp(sg.Window):
     def __init__(self, engine):
         self.engine = engine
+        
         #Control Panel components
         self.turn_label = sg.Text("Turn: " + str(engine.game.turn_num) + "   ")
         self.selected_entity_input = sg.InputCombo(["XXXXXXXXXXXXXX"], key="selected_entity_input", enable_events=True)
@@ -1124,7 +1120,7 @@ class JoadiaWindowApp(sg.Window):
         #next phase button, it is confirmation that the phase is done
         if isinstance(self.engine.current_player, HumanPlayer):    
             self.engine.current_player.phase_done = True
-            
+            self.map_view.auto_update = True
         else:
             #else turn off the auto update to the map view so we get a chance
             #to play them back to the user
@@ -1275,13 +1271,11 @@ class JoadiaWindowApp(sg.Window):
     
     
     def on_next_move(self):
-        #if we have run out of moves for the current phase move on the next
-        #phase
+        #if we have run out of moves for the current phase prompt user to 
+        #move on the next phase
         if self.replay.moves == []:
-            #self.map_view.auto_update = False
             print("There are no further moves to show.") 
             print("Press 'Next Phase' to go to the next phase.")
-            #self.on_do_phase()
         #else step through the saved replay moves
         else:
             self.map_view.auto_update = True
