@@ -5,7 +5,7 @@ Created on Fri Oct 19 10:41:30 2018
 @author: wongm
 """
 from core.model import Side, MobileEntity, LiftEntity, C130, OPV, Militia, \
-Population, FishingBoat, Medic, Inf, Civilian, Supply, P8, MotCoy
+Population, FishingBoat, Medic, Inf, Civilian, Supply, P8, MotCoy, Game
 
 import core.model 
 from core.engine import Player, TimerPlayer
@@ -84,7 +84,7 @@ class RandomBlueAI(Player):
         super().place_entities(territories)
                   
     def do_dawn_phase(self, entities, territories):
-        if core.model.DO_PRINT:
+        if Game.DO_PRINT:
             print("")
             print("--*", self.name, "doing dawn phase *--")
             
@@ -125,7 +125,7 @@ class RandomBlueAI(Player):
 
                
     def do_day_phase(self, entities, territories):
-        if core.model.DO_PRINT:
+        if Game.DO_PRINT:
             print("")
             print("--*", self.name, "doing day phase *--")
          
@@ -180,7 +180,7 @@ class RandomBlueAI(Player):
                 
   
     def do_dusk_phase(self, entities, territories):
-        if core.model.DO_PRINT:
+        if Game.DO_PRINT:
             print("")
             print("--*", self.name, "doing dusk phase *--")
         for entity in entities:
@@ -211,7 +211,7 @@ class RandomRedAI(Player):
         pass
 
     def do_night_phase(self, entities, territories):
-        if core.model.DO_PRINT:
+        if Game.DO_PRINT:
             print("")
             print("--*", self.name, "doing night phase *--")
         
@@ -268,7 +268,7 @@ class CyclingRedAI(Player):
         
 
     def do_night_phase(self, entities, territories):
-        if core.model.DO_PRINT:
+        if Game.DO_PRINT:
             print("")
             print("--*", self.name, "doing night phase *--")
         #random move all opfor entities
@@ -307,7 +307,7 @@ class CyclingRedAI(Player):
                 fishing_boat.place(territories["T21"].seas[0])
                 self.fishing_boat_action = 1
 
-            if core.model.DO_PRINT: 
+            if Game.DO_PRINT: 
                 print("Linksky has launched a fishing boat!")
     
         return True
