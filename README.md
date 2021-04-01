@@ -7,6 +7,10 @@ This is a computer implementation of "Disaster at the Joadia Islands", a boardga
 
 To run the user interface, run the main target in the file "example_main_gui.py"
 
-The rules for the game are located in the doc folder.
+The rules for the game are located in the docs folder.
+
+This software runs under Python 3.x.
+
+There is a dependency on the PySimpleGUI package.
 
 This software is released under the GNU General Public Licence (Version 3) available at https://opensource.org/licenses/GPL-3.0 (GPL-3.0)
